@@ -5,7 +5,7 @@ services:
       context: .
       args:
         UPSTREAM_VERSION: 1.13.4
-    image: "nethermind-ropsten.public.dappnode.eth:1.0.9"
+    image: "nethermind.nethermind-ropsten.public.dappnode.eth:1.0.9"
     restart: unless-stopped
     security_opt:
       - "seccomp:unconfined"
@@ -13,7 +13,6 @@ services:
       - "data:/data"
     environment:
       MODE: normal
-      NETHERMIND_CONFIG: ropsten
       OVERRIDE_TTD: 50000000000000000
       NETHERMIND_SYNCCONFIG_FASTSYNC: "true"
       NETHERMIND_JSONRPCCONFIG_ENABLED: "true"
@@ -21,6 +20,7 @@ services:
       NETHERMIND_INITCONFIG_WEBSOCKETSENABLED: "true"
       NETHERMIND_NETWORKCONFIG_DISCOVERYPORT: 30390
       NETHERMIND_NETWORKCONFIG_P2PPORT: 30390
+      LOG: DEBUG
       EXTRA_OPTS: ""
     ports:
       - "30390:30390/udp"
